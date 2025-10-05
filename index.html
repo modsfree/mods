@@ -1,82 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Mods Downloads</title>
-  <!-- OGAds Content Locker Script -->
-  <script type="text/javascript" id="ogjs" src="https://lockedapp.net/cl/js/9vqd5r"></script>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
-    h1 { text-align: center; }
-    .game { background: #fff; padding: 20px; margin: 20px auto; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
-    .game img {
-  width: 100%;
-  height: 200px; /* adjust to what looks good */
-  object-fit: cover; /* keeps it proportional but crops overflow */
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOP WASTING MONEY! Get Your FREE Game Resources</title>
+    <style>
+        /* BASIC STYLES FOR THE PAGE */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* HEADER AND HERO SECTION */
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ffcc00; /* Gold/Yellow for attention */
+        }
+        h2 {
+            font-size: 1.2em;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
 
-    .buttons { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
-    .btn { padding: 10px 20px; background: #28a745; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-weight: bold; }
-    .btn:hover { background: #218838; }
-    .note { font-size: 0.9em; color: #555; margin-top: 10px; }
-  </style>
+        /* CTA BUTTON STYLING */
+        .cta-button {
+            display: inline-block;
+            background-color: #ff4500; /* Bright Orange/Red for high contrast */
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background-color: #e63e00;
+        }
+
+        /* SOCIAL PROOF / TRUST BAR */
+        .social-proof {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #fff;
+            border-bottom: 2px solid #ddd;
+        }
+        .social-proof p {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .social-icons span {
+            display: inline-block;
+            margin: 0 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #007bff; /* Blue to represent platform */
+        }
+        
+        /* LIVE FEED (SIMULATED) */
+        .live-feed {
+            background-color: #e7f7e3; /* Light green for success */
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #28a745;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* FEATURES / HOW IT WORKS */
+        .section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .section h3 {
+            font-size: 2em;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #ff4500;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .step-item {
+            width: 30%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .step-item h4 {
+            color: #ff4500;
+            font-size: 1.3em;
+            margin-top: 0;
+        }
+        
+        /* FAQ SECTION */
+        .faq-item {
+            text-align: left;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+        }
+        .faq-item h4 {
+            color: #1a1a1a;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .faq-item p {
+            margin-top: 0;
+            color: #555;
+        }
+        
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8em;
+            color: #777;
+        }
+        footer a {
+            color: #777;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8em; }
+            .steps { flex-direction: column; }
+            .step-item { width: 100%; margin-bottom: 20px; }
+            .cta-button { font-size: 1.2em; }
+        }
+    </style>
 </head>
 <body>
-  <h1>Unlock Your Game Mods!</h1>
-  <p style="text-align:center; font-weight:bold;">Complete one free step to unlock the download!</p>
 
-  <!-- Game Sections -->
-  <div class="game">
-    <img src="https://images.rbxcdn.com/5348266ea6c5e67b19d6a814cbbb70f6.jpg" alt="Roblox Mod">
-    <h2>Roblox Mod</h2>
-    <div class="buttons">
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download Android</a>
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download iOS</a>
-    </div>
-    <p class="note">Complete one step in the locker to unlock.</p>
-  </div>
+    <header>
+        <div class="container">
+            <h1>STOP WASTING MONEY! Get Your FREE ⚔️ V-BUCKS & DIAMONDS 💎</h1>
+            <h2>The only working Fortnite/Mobile Legends generator for 2025! Updated and 100% Virus-Free.</h2>
+            
+            <a href="**[YOUR OGADS CONTENT LOCKER URL HERE]**" class="cta-button">
+                ACCESS THE GENERATOR NOW
+            </a>
+        </div>
+    </header>
 
-  <div class="game">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqbVr1vGxGOIh9p3TaRNbiGifcHY8-VDH7dw&s" alt="GTA V">
-    <h2>GTA V</h2>
-    <div class="buttons">
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download Android</a>
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download iOS</a>
+    <div class="social-proof">
+        <div class="container">
+            <p>⭐ TRUSTED BY OVER 20,000 GAMERS WORLDWIDE ⭐</p>
+            <div class="social-icons">
+                <span>As Seen On:</span>
+                <span>FORUM X</span>
+                <span>REDDIT R/GAMERS</span>
+                <span>DISCORD SERVER </span>
+            </div>
+        </div>
     </div>
-    <p class="note">Complete one step in the locker to unlock.</p>
-  </div>
 
-  <div class="game">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZUCnOpHz2xF8uSYMBRO4vkMB-5LqLoS0f2g&s" alt="Fortnite">
-    <h2>Fortnite</h2>
-    <div class="buttons">
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download Android</a>
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download iOS</a>
+    <div class="live-feed">
+        LIVE ACTIVITY: User *T****r* generated 5,000 Diamonds in US | User *M****y* unlocked 1,000 V-Bucks in CA
     </div>
-    <p class="note">Complete one step in the locker to unlock.</p>
-  </div>
 
-  <div class="game">
-    <img src="https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png" alt="Minecraft">
-    <h2>Minecraft</h2>
-    <div class="buttons">
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download Android</a>
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download iOS</a>
+    <div class="section how-it-works">
+        <div class="container">
+            <h3>How It Works: 3 Simple Steps</h3>
+            <div class="steps">
+                <div class="step-item">
+                    <h4>1. Click Access Button</h4>
+                    <p>Hit the big button to be taken to our secure verification page. We do this to prevent bots from draining our resources.</p>
+                </div>
+                <div class="step-item">
+                    <h4>2. Complete Quick Offer</h4>
+                    <p>To prove you are human, complete one quick, free offer from the list provided. This takes less than 2 minutes.</p>
+                </div>
+                <div class="step-item">
+                    <h4>3. Claim Your Resources</h4>
+                    <p>Once the offer is completed, your V-Bucks/Diamonds will be instantly and securely credited to your in-game account.</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 40px;">
+                <a href="**[YOUR OGADS CONTENT LOCKER URL HERE]**" class="cta-button">
+                    START GENERATING NOW!
+                </a>
+            </p>
+        </div>
     </div>
-    <p class="note">Complete one step in the locker to unlock.</p>
-  </div>
 
-  <div class="game">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Call_of_Duty_Infinite_Warfare_cover.jpg/250px-Call_of_Duty_Infinite_Warfare_cover.jpg" alt="Call of Duty">
-    <h2>Call of Duty</h2>
-    <div class="buttons">
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download Android</a>
-      <a href="https://modsfree.github.io/mods/" class="btn" onclick="og_load();">Download iOS</a>
+    <div class="section faq-section" style="background-color: #fff;">
+        <div class="container">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <h4>Q: Is this method safe to use?</h4>
+                <p>A: Yes, the generator works through a secure, proxy-based connection and never requires your actual password. Your account is 100% safe.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q: Will my account get banned?</h4>
+                <p>A: Absolutely not. Our system is undetectable, as the resources are credited to your account instantly through approved server-side methods.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q: Why do I have to complete an offer to access it?</h4>
+                <p>A: The simple verification step is how we cover our high-cost server resources and prevent automated bots from abusing the generator.</p>
+            </div>
+        </div>
     </div>
-    <p class="note">Complete one step in the locker to unlock.</p>
-  </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 Exclusive Game Resources. | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Disclaimer</a>
+        </div>
+    </footer>
+
 </body>
 </html>
