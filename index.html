@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
   <title>Game Mod Hub - Roblox, Monopoly Go, Royal Match & More</title>
 
   <!-- Font Awesome for icons -->
@@ -10,6 +11,9 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
+=======
+  <title>FREE MODS & GENERATORS for Roblox, Monopoly Go & Royal Match</title>
+>>>>>>> 46a1d25 (good)
 
   <script defer>
     let selectedLink = null;
@@ -18,40 +22,98 @@
     let lockerStorageHandler = null;
 
     function cleanupLockerWatchers() {
+<<<<<<< HEAD
       if (lockerWatcherInterval) clearInterval(lockerWatcherInterval);
       if (lockerMessageHandler) window.removeEventListener("message", lockerMessageHandler);
       if (lockerStorageHandler) window.removeEventListener("storage", lockerStorageHandler);
+=======
+      if (lockerWatcherInterval) {
+        clearInterval(lockerWatcherInterval);
+        lockerWatcherInterval = null;
+      }
+      if (lockerMessageHandler) {
+        window.removeEventListener("message", lockerMessageHandler);
+        lockerMessageHandler = null;
+      }
+      if (lockerStorageHandler) {
+        window.removeEventListener("storage", lockerStorageHandler);
+        lockerStorageHandler = null;
+      }
+>>>>>>> 46a1d25 (good)
     }
 
     function redirectToSelected() {
       cleanupLockerWatchers();
       try { localStorage.removeItem("og_verified"); } catch (e) {}
+<<<<<<< HEAD
       window.location.href = selectedLink || "/";
+=======
+      if (selectedLink) {
+        window.location.href = selectedLink;
+      } else {
+        window.location.href = "/";
+      }
+>>>>>>> 46a1d25 (good)
     }
 
     function startUnlockWatcher() {
       lockerMessageHandler = function (ev) {
+<<<<<<< HEAD
         const data = ev.data;
         if (
           (typeof data === "object" && data.type === "og_locker_completed") ||
           (typeof data === "string" && data === "og_locker_completed")
         ) redirectToSelected();
+=======
+        try {
+          const data = ev.data;
+          if (!data) return;
+          if (
+            (typeof data === "object" && data.type === "og_locker_completed") ||
+            (typeof data === "string" && data === "og_locker_completed")
+          ) {
+            redirectToSelected();
+          }
+        } catch (e) {}
+>>>>>>> 46a1d25 (good)
       };
       window.addEventListener("message", lockerMessageHandler);
 
       lockerStorageHandler = function (ev) {
+<<<<<<< HEAD
         if (ev.key === "og_verified" && ev.newValue === "1") redirectToSelected();
+=======
+        try {
+          if (ev.key === "og_verified" && ev.newValue === "1") {
+            redirectToSelected();
+          }
+        } catch (e) {}
+>>>>>>> 46a1d25 (good)
       };
       window.addEventListener("storage", lockerStorageHandler);
 
       lockerWatcherInterval = setInterval(function () {
+<<<<<<< HEAD
         if (window.og_verified === true || localStorage.getItem("og_verified") === "1") {
           redirectToSelected();
         }
+=======
+        try {
+          if (window.og_verified === true) {
+            redirectToSelected();
+            return;
+          }
+          if (localStorage.getItem && localStorage.getItem("og_verified") === "1") {
+            redirectToSelected();
+            return;
+          }
+        } catch (e) {}
+>>>>>>> 46a1d25 (good)
       }, 1000);
     }
 
     function openLocker(event, link) {
+<<<<<<< HEAD
       event.preventDefault();
       selectedLink = link;
 
@@ -61,6 +123,19 @@
           startUnlockWatcher();
         } catch {
           og_locker?.();
+=======
+      if (event && event.preventDefault) event.preventDefault();
+      if (typeof link === "string") selectedLink = link;
+
+      if (typeof og_locker !== "undefined") {
+        try {
+          og_locker(function () {
+            redirectToSelected();
+          });
+          startUnlockWatcher();
+        } catch (err) {
+          try { og_locker(); } catch (e) { console.error(e); }
+>>>>>>> 46a1d25 (good)
           startUnlockWatcher();
         }
         return false;
@@ -68,6 +143,7 @@
 
       const script = document.createElement("script");
       script.src = "https://lockverify.org/cl/js/9vqd5r";
+<<<<<<< HEAD
       script.async = true;
       document.body.appendChild(script);
 
@@ -78,6 +154,21 @@
             startUnlockWatcher();
           } catch {
             og_locker?.();
+=======
+      script.id = "ogjs";
+      script.async = true;
+      document.body.appendChild(script);
+
+      script.onload = function () {
+        if (typeof og_locker !== "undefined") {
+          try {
+            og_locker(function () {
+              redirectToSelected();
+            });
+            startUnlockWatcher();
+          } catch (err) {
+            try { og_locker(); } catch (e) { console.error(e); }
+>>>>>>> 46a1d25 (good)
             startUnlockWatcher();
           }
         } else {
@@ -85,11 +176,22 @@
         }
       };
 
+<<<<<<< HEAD
+=======
+      script.onerror = function () {
+        console.error("Failed to load locker script.");
+      };
+
+>>>>>>> 46a1d25 (good)
       return false;
     }
 
     window.__markLockerCompleted = function () {
+<<<<<<< HEAD
       localStorage.setItem("og_verified", "1");
+=======
+      try { localStorage.setItem("og_verified", "1"); } catch (e) {}
+>>>>>>> 46a1d25 (good)
       window.og_verified = true;
       window.postMessage({ type: "og_locker_completed" }, "*");
       redirectToSelected();
@@ -98,14 +200,22 @@
 
   <style>
     body {
+<<<<<<< HEAD
       font-family: "Poppins", Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #101010;
+=======
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+>>>>>>> 46a1d25 (good)
       color: #fff;
       line-height: 1.6;
     }
 
+<<<<<<< HEAD
     header {
       text-align: center;
       padding: 60px 20px;
@@ -128,10 +238,15 @@
 
     .container {
       max-width: 1000px;
+=======
+    .container {
+      max-width: 900px;
+>>>>>>> 46a1d25 (good)
       margin: 0 auto;
       padding: 20px;
     }
 
+<<<<<<< HEAD
     .game-cards {
       display: flex;
       justify-content: space-between;
@@ -160,10 +275,102 @@
       width: 110px;
       border-radius: 12px;
       margin-bottom: 15px;
+=======
+    header {
+      background-color: #1a1a1a;
+      padding: 40px 0;
+      text-align: center;
+      border-bottom: 4px solid #ff4500;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      color: #4caf50;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 1.4em;
+      font-weight: 400;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #ff4500;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 40px;
+      font-size: 1.6em;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, transform 0.1s;
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .cta-button:hover {
+      background-color: #e63e00;
+      transform: translateY(-2px);
+    }
+
+    .game-select {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .game-cards {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #222;
+      padding: 25px;
+      border-radius: 8px;
+      width: 45%;
+      border: 1px solid #333;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.3s, transform 0.2s;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .card:hover {
+      border-color: #ff4500;
+      transform: scale(1.03);
+    }
+
+    .card h4 {
+      color: #ffcc00;
+      margin-top: 10px;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    .card p {
+      color: #bbb;
+      text-align: center;
+    }
+
+    .game-logo {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px auto;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+>>>>>>> 46a1d25 (good)
       transition: transform 0.3s ease;
     }
 
     .card:hover .game-logo {
+<<<<<<< HEAD
       transform: scale(1.08);
     }
 
@@ -209,10 +416,50 @@
     .download-btn:hover {
       background-color: #43a047;
       transform: translateY(-2px);
+=======
+      transform: scale(1.1);
+    }
+
+    .section {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 2em;
+      color: #4caf50;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-around;
+      text-align: left;
+      margin-top: 20px;
+      color: #eee;
+      flex-wrap: wrap;
+    }
+
+    .step-item {
+      width: 30%;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .step-item h4 {
+      color: #ff4500;
+      font-size: 1.3em;
+      margin-top: 0;
+>>>>>>> 46a1d25 (good)
     }
 
     footer {
       text-align: center;
+<<<<<<< HEAD
       color: #888;
       font-size: 0.85em;
       border-top: 1px solid #333;
@@ -222,10 +469,22 @@
 
     footer a {
       color: #888;
+=======
+      padding: 20px;
+      font-size: 0.8em;
+      color: #777;
+      margin-top: 40px;
+      border-top: 1px solid #333;
+    }
+
+    footer a {
+      color: #777;
+>>>>>>> 46a1d25 (good)
       text-decoration: none;
       margin: 0 10px;
     }
 
+<<<<<<< HEAD
     footer a:hover {
       text-decoration: underline;
     }
@@ -234,12 +493,42 @@
       .card {
         width: 100%;
       }
+=======
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .game-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+        margin: 10px 0;
+      }
+
+      .steps {
+        flex-direction: column;
+      }
+
+      .step-item {
+        width: 100%;
+      }
+
+      .cta-button {
+        font-size: 1.4em;
+        padding: 12px 25px;
+      }
+>>>>>>> 46a1d25 (good)
     }
   </style>
 </head>
 
 <body>
   <header>
+<<<<<<< HEAD
     <h1>Game Mod Hub</h1>
     <h2>Premium Modded Tools for Roblox, Monopoly Go, Royal Match & More</h2>
   </header>
@@ -299,15 +588,95 @@
           <button class="download-btn" onclick="return openLocker(event, 'https://www.mediafire.com/file/c92o0krw4i6mphu/Township__v30.0.1__MOD.apk/file')">
             <i class="fa-brands fa-apple"></i> iOS
           </button>
+=======
+    <div class="container">
+      <h1>UNLIMITED IN-GAME POWER</h1>
+      <h2>
+        The Only Working Mod Platform for Top Mobile Games:
+        <strong>Roblox, Monopoly Go, & Royal Match</strong>
+      </h2>
+
+      <a href="#" onclick="return openLocker(event, 'https://modyolo.com');" class="cta-button">
+        DOWNLOAD FREE MOD PACK (2025)
+      </a>
+    </div>
+  </header>
+
+  <div class="section game-select">
+    <div class="container">
+      <h3>Select Your Mod/Generator</h3>
+      <div class="game-cards">
+        <div class="card" onclick="return openLocker(event, 'https://modyolo.com/download/roblox-1834');">
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRhb5q3rqsm6qHdig45uBdZkJHwCBsFBi_QuO1IIHDnGMnANgcF"
+               alt="Roblox Logo" class="game-logo" />
+          <h4>Roblox Free Robux & GamePasses</h4>
+          <p>Unlock premium Robux packages and GamePasses with our universal injection tool.</p>
+        </div>
+
+        <div class="card" onclick="return openLocker(event, 'https://modyolo.com/download/monopoly-43');">
+          <img src="img/mg.jpg"
+               alt="Monopoly Go Logo" class="game-logo" />
+          <h4>Monopoly GO! Unlimited Dice & Rolls</h4>
+          <p>Generate unlimited Free Dice Rolls and Money to complete all your board sets instantly.</p>
+        </div>
+
+        <div class="card" onclick="return openLocker(event, 'https://modyolo.com/download/royal-match-2678');">
+          <img src="img/rm.png"
+               alt="Royal Match Logo" class="game-logo" />
+          <h4>Royal Match Unlimited Coins & Boosters</h4>
+          <p>Activate infinite lives, coins, and all in-game boosters to pass every level with ease.</p>
+        </div>
+
+        <div class="card" onclick="return openLocker(event, 'https://modyolo.com/download/township-2225');">
+          <img src="img/ts.jpg"
+               alt="Township Logo" class="game-logo" />
+          <h4>Township Free T-Cash Generator</h4>
+          <p>Use our secure tool to generate up to 50,000 T-Cash and unlock all premium content.</p>
+>>>>>>> 46a1d25 (good)
         </div>
       </div>
     </div>
   </div>
 
+<<<<<<< HEAD
   <footer>
     &copy; 2025 Game Mod Hub | All Rights Reserved |
     <a href="#">Privacy Policy</a> |
     <a href="#">Disclaimer</a>
+=======
+  <div class="section how-it-works" style="background-color: #1a1a1a;">
+    <div class="container">
+      <h3>How to Get Your Exclusive Mod</h3>
+      <div class="steps">
+        <div class="step-item">
+          <h4>Step 1: Click Download</h4>
+          <p>Click the big download button or a game card to start the secure file transfer process.</p>
+        </div>
+        <div class="step-item">
+          <h4>Step 2: Human Verification (REQUIRED)</h4>
+          <p>To prevent bot abuse and protect our server, you must complete one quick, free verification offer.
+             <strong>The Content Locker will appear when you click.</strong>
+          </p>
+        </div>
+        <div class="step-item">
+          <h4>Step 3: Enjoy Your Mod</h4>
+          <p>Once verification is complete, you will be instantly redirected to the download page for your chosen mod!</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 40px;">
+        <a href="#" onclick="return openLocker(event, 'https://mod yolo.com/');" class="cta-button">START FREE DOWNLOAD</a>
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Game Mod Hub | Unauthorized Access Prohibited |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Disclaimer</a>
+    </div>
+>>>>>>> 46a1d25 (good)
   </footer>
 </body>
 </html>
